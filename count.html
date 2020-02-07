@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	
+</head>
+<style type="text/css">
+	*{
+  box-sizing : border-box;
+}
+body{
+  display:flex;
+  flex-deirextion:column;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  margin:0;
+  background-color:blue;
+  color:#fff;
+  font-family:'Robato Mano',sans-serif;
+}
+.count{
+  font-size:50px;
+}
+</style>
+<body>
+<div class="count" data-target="1000">
+</div>
+ <span>Twitter Followers</span>
+
+</body>
+<script type="text/javascript">
+	const counters = document.querySelectorAll('.count');
+counters.forEach(count=>{
+  count.innerText = '0';
+  const updateCount = () =>{
+    const target = +count.getAttribute('data-target');
+ const c = +count.innerText;
+    const inc = target/1000;
+    if(c < target){
+      count.innerText = c + inc;
+      setTimeout(updateCount,1);
+    }else{
+      count.innerText=target;
+    }
+  
+  
+  }
+  updateCount();
+});
+</script>
+</html>
